@@ -93,52 +93,59 @@ const charOptions = [];
 const generatedPassword = "";
 //generate password - concate each character
 
-let passwordLength = 0 
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+
+  //prompt for password length
+// 8 - 128 characters  -- selectedLength
+// conditional to check if number is within range. 
+// prompts store data as strong, parse to number
+// if input out of range, return out of function or call again
 
   let pwLength = parseInt(prompt("How many characters would you like your password to be? (This needs to be between 8 and 128 characters)")) 
     if (pwLength < 8 || pwLength > 128) {
       alert("Invalid length, please choose between 8 and 128 characters long")
       return
     }
+    if (isNaN(pwLength) === true) {
+      alert("Please enter a numeric number, try again")
+      return
+    }
 
+    //confirm which character sets to use. 
+// if user answers false for all, return out of function or call again
   let specialChar = confirm("Do you want special characters in your password?");
-  let numChar = confirm
+  let numChar = confirm("Do you want numbers in your password?");
+  let lowerChar = confirm("Do you want lower cased characters in your password?");
+  let upperChar = confirm("Do you want upper cased characters in your password?");
+
+    if (specialChar === false && numChar === false && lowerChar === false && upperChar === false) {
+      alert("You must choose one type of character")
+    }
 
   let pwOptions = {
-      length: pwLength;
-      special:
-      number:
-      lower: 
-      upper: 
+      length: pwLength,
+      special: specialChar,
+      number: numChar,
+      lower: lowerChar,
+      upper: upperChar,
   }
 
   return pwOptions
 
 }
 
-//prompt for password length
-// 8 - 128 characters  -- selectedLength
-// conditional to check if number is within range. 
-// prompts store data as strong, parse to number
-// if input out of range, return out of function or call again
 
-//confirm which character sets to use. 
-// if user answers false for all, return out of function or call again
 // once they select a character set:
 // generate a random character for each 
-// push/concatanate selected characters to a new array of all selected characters 
-// once character sets are selevted, move on to generate random characters
-
-
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
-//variable for password
-//variable for index 
+// push/concatanate selected characters to a new array of all selected characters 
+// once character sets are selected, move on to generate random characters
 
 //for loop selectedLength number of times
 //generate random number - index for character in mega array
@@ -159,7 +166,9 @@ function generatePassword() {
   if (options.special) {
     possibleChar = possibleChar.concat(specialCharacters)
     guaranteedChar.push(getRandom(specialCharacters)) = 
-  }
+  } 
+
+  pwOptions.length
 
 }
 
