@@ -98,38 +98,38 @@ const generatedPassword = "";
 function getPasswordOptions() {
 
   //prompt for password length
-// 8 - 128 characters  -- selectedLength
-// conditional to check if number is within range. 
-// prompts store data as strong, parse to number
-// if input out of range, return out of function or call again
+  // 8 - 128 characters  -- selectedLength
+  // conditional to check if number is within range. 
+  // prompts store data as strong, parse to number
+  // if input out of range, return out of function or call again
 
-  let pwLength = parseInt(prompt("How many characters would you like your password to be? (This needs to be between 8 and 128 characters)")) 
-    if (pwLength < 8 || pwLength > 128) {
-      alert("Invalid length, please choose between 8 and 128 characters long")
-      return
-    }
-    if (isNaN(pwLength) === true) {
-      alert("Please enter a numeric number, try again")
-      return
-    }
+  let pwLength = parseInt(prompt("How many characters would you like your password to be? (This needs to be between 8 and 128 characters)"))
+  if (pwLength < 8 || pwLength > 128) {
+    alert("Invalid length, please choose between 8 and 128 characters long")
+    return
+  }
+  if (isNaN(pwLength) === true) {
+    alert("Please enter a numeric number, try again")
+    return
+  }
 
-    //confirm which character sets to use. 
-// if user answers false for all, return out of function or call again
+  //confirm which character sets to use. 
+  // if user answers false for all, return out of function or call again
   let specialChar = confirm("Do you want special characters in your password?");
   let numChar = confirm("Do you want numbers in your password?");
   let lowerChar = confirm("Do you want lower cased characters in your password?");
   let upperChar = confirm("Do you want upper cased characters in your password?");
 
-    if (specialChar === false && numChar === false && lowerChar === false && upperChar === false) {
-      alert("You must choose one type of character")
-    }
+  if (specialChar === false && numChar === false && lowerChar === false && upperChar === false) {
+    alert("You must choose one type of character")
+  }
 
   let pwOptions = {
-      length: pwLength,
-      special: specialChar,
-      number: numChar,
-      lower: lowerChar,
-      upper: upperChar,
+    length: pwLength,
+    special: specialChar,
+    number: numChar,
+    lower: lowerChar,
+    upper: upperChar,
   }
 
   return pwOptions
@@ -164,26 +164,26 @@ function generatePassword() {
   let guaranteedChar = []
 
   if (options.special) {
-    possibleChar = possibleChar.concat(specialCharacters)
-    guaranteedChar.push(getRandom(specialCharacters)) = 
-  } 
+    possibleChar = possibleChar.concat(specialCharacters);
+    guaranteedChar.push(getRandom(specialCharacters));
+  }
 
-  pwOptions.length
+  if (options.number) {
+    possibleChar = possibleChar.concat(numericCharacters);
+    guaranteedChar.push(getRandom(numericCharacters));
+  }
+  if (options.lower) {
+    possibleChar = possibleChar.concat(lowerCasedCharacters);
+    guaranteedChar.push(getRandom(lowerCasedCharacters));
+  }
+  if (options.upper) {
+    possibleChar = possibleChar.concat(upperCasedCharacters);
+    guaranteedChar.push(getRandom(upperCasedCharacters));
+  }
+
+
 
 }
-
-// Generate a password when the button is clicked
-// Present a series of prompts for password criteria
-// Length of password
-// At least 8 characters but no more than 128.  -- selectedLength
-// Character types
-// Lowercase
-// Uppercase
-// Numeric
-// Special characters ($@%&*, etc)
-// Code should validate for each input and at least one character type should be selected
-// Once prompts are answered then the password should be generated and displayed in an alert or written to the page
-
 
 
 // Get references to the #generate element
@@ -198,4 +198,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', getPasswordOptions);
+generateBtn.addEventListener('click', writePassword);
