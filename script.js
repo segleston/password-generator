@@ -182,6 +182,18 @@ function generatePassword() {
   }
 
 
+  let generatedPassword = guaranteedChar.join('');
+
+  // Calculate remaining characters to reach the desired password length
+  let remainingLength = options.length - guaranteedChar.length;
+
+  // Loop to fill up the password with randomly chosen characters from possibleChar
+  for (let i = 0; i < remainingLength; i++) {
+    generatedPassword += getRandom(possibleChar);
+  }
+
+  return generatedPassword;
+
 
 }
 
