@@ -10,3 +10,20 @@ Usage:
 - If conditions are met, user is then asked if they want numeric/upper case/lower case/special characters in their password (user must choose at least one)
 - Password is then generated. 
 
+Live link: 
+
+
+
+Landing page:
+
+![alt text](./images/Screenshot%202023-12-16%20at%2014.31.48.png)
+
+Prompt asking for input: 
+
+![alt text](./images/Screenshot%202023-12-16%20at%2014.33.51.png)
+
+
+Credit:
+
+TA Chris
+
