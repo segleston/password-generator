@@ -10,7 +10,7 @@ Usage:
 - If conditions are met, user is then asked if they want numeric/upper case/lower case/special characters in their password (user must choose at least one)
 - Password is then generated. 
 
-Live link: 
+Live link: https://segleston.github.io/password-generator/
 
 
 
@@ -26,4 +26,4 @@ Prompt asking for input:
 Credit:
 
 TA Chris
-
+Tutor Collin Porter
